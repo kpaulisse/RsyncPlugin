@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension id="rsyncBuilder" name="Rsync Builder" point="org.eclipse.core.resources.builders">
+      <builder hasNature="true">
+         <run class="com.paulisse.eclipse.plugin.rsync.builder.RsyncBuilder" />
+      </builder>
+   </extension>
+   <extension id="rsyncBuilderNature" name="Rsync Builder Nature" point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="com.paulisse.eclipse.plugin.rsync.builder.RsyncBuilderNature" />
+      </runtime>
+      <builder id="com.paulisse.eclipse.plugin.rsync.rsyncBuilder" />
+   </extension>
+   <extension point="org.eclipse.ui.commands">
+      <category description="Rsync Actions" id="com.paulisse.eclipse.plugin.rsync.actions" name="Rsync Actions" />
+      <command categoryId="com.paulisse.eclipse.plugin.rsync.actions" defaultHandler="com.paulisse.eclipse.plugin.rsync.actions.SynchronizeNow" description="Synchronize to remote repository now" id="com.paulisse.eclipse.plugin.rsync.actions.syncnow" name="Sync now" />
+      <category description="Rsync Toggles" id="com.paulisse.eclipse.plugin.rsync.toggles" name="Rsync Toggles" />
+      <command categoryId="com.paulisse.eclipse.plugin.rsync.toggles" defaultHandler="com.paulisse.eclipse.plugin.rsync.actions.AddRemoveAutosyncNatureHandler" description="Toggle Automatic Sync" id="com.paulisse.eclipse.plugin.rsync.addRemoveAutosyncNature" name="Toggle Automatic Sync" />
+   </extension>
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution allPopups="false" locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu id="com.paulisse.eclipse.plugin.rsync.menu.popup" label="Remote Sync (rsync)">
+            <command commandId="com.paulisse.eclipse.plugin.rsync.addRemoveAutosyncNature" label="Disable Automatic Synchronization (rsync)" style="push">
+               <visibleWhen checkEnabled="false">
+                  <with variable="selection">
+                     <count value="1" />
+                     <iterate>
+                        <adapt type="org.eclipse.core.resources.IProject">
+                           <test value="com.paulisse.eclipse.plugin.rsync.rsyncBuilderNature" property="org.eclipse.core.resources.projectNature" />
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command commandId="com.paulisse.eclipse.plugin.rsync.addRemoveAutosyncNature" label="Enable Automatic Synchronization (rsync)" style="push">
+               <visibleWhen checkEnabled="true">
+                  <with variable="selection">
+                     <count value="1" />
+                     <iterate>
+                        <adapt type="org.eclipse.core.resources.IProject">
+                           <not>
+                              <test value="com.paulisse.eclipse.plugin.rsync.rsyncBuilderNature" property="org.eclipse.core.resources.projectNature" />
+                           </not>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command commandId="com.paulisse.eclipse.plugin.rsync.actions.syncnow" label="Synchronize now" style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page name="Remote Sync (rsync)" class="com.paulisse.eclipse.plugin.rsync.preferences.PreferencePage" id="com.paulisse.eclipse.plugin.rsync.preferences.PreferencePage" />
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.paulisse.eclipse.plugin.rsync.preferences.PreferenceInitializer" />
+   </extension>
+   <extension point="org.eclipse.ui.propertyPages">
+      <page class="com.paulisse.eclipse.plugin.rsync.properties.ProjectPropertyPage" id="com.paulisse.eclipse.plugin.rsync.properties.ProjectPropertyPage" name="Remote Sync (rsync)" />
+   </extension>
+</plugin>

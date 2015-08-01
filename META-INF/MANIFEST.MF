@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RsyncPlugin
+Bundle-SymbolicName: com.paulisse.eclipse.plugin.rsync;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: com.paulisse.eclipse.plugin.rsync.Activator
+Bundle-Vendor: Kevin Paulisse
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.console,
+ org.eclipse.jdt.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Eclipse-PlatformFilter: (! (osgi.os=win32))
