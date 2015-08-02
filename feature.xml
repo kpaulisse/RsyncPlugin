@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="RsyncPluginFeature"
+      label="Remote Synchronization (rsync)"
+      version="${pluginVersion}"
+      provider-name="Kevin Paulisse"
+      os="aix,hpux,linux,macosx,qnx,solaris"
+      nl="en_US">
+
+   <description url="https://github.com/kpaulisse/RsyncPlugin">
+      This is a very light-weight plugin to invoke &quot;rsync&quot; when something is saved.
+https://github.com/kpaulisse/RsyncPlugin
+   </description>
+
+   <copyright url="https://github.com/kpaulisse/RsyncPlugin/blob/master/README.md">
+      Copyright (c) 2015, Kevin Paulisse, All Rights Reserved
+   </copyright>
+
+   <license url="https://www.eclipse.org/legal/epl-v10.html">
+      Eclipse Public License - v 1.0
+   </license>
+
+   <url>
+      <update label="Rsync Plugin Update Site" url="http://www.paulisse.com/eclipse/updates"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui.console"/>
+   </requires>
+
+   <plugin
+         id="com.paulisse.eclipse.plugin.rsync"
+         download-size="0"
+         install-size="0"
+         version="${pluginVersion}"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='Update Site' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='TIMESTAMP000'/>
+    <property name='p2.compressed' value='true'/>
+  </properties>
+  <references size='2'>
+    <repository uri='http://www.paulisse.com/eclipse/updates' url='http://www.paulisse.com/eclipse/updates' type='1' options='0'/>
+    <repository uri='http://www.paulisse.com/eclipse/updates' url='http://www.paulisse.com/eclipse/updates' type='0' options='0'/>
+  </references>
+  <units size='3'>
+    <unit id='com.paulisse.eclipse.plugin.rsync' version='VERSION'>
+      <update id='com.paulisse.eclipse.plugin.rsync' range='[0.0.0,VERSION)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='RsyncPlugin'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kevin Paulisse'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.paulisse.eclipse.plugin.rsync' version='VERSION'/>
+        <provided namespace='osgi.bundle' name='com.paulisse.eclipse.plugin.rsync' version='VERSION'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
+      </requires>
+      <filter>
+        (!(osgi.os=win32))
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.paulisse.eclipse.plugin.rsync' version='VERSION'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.paulisse.eclipse.plugin.rsync;singleton:=true&#xA;Bundle-Version: VERSION
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='RsyncPluginFeature.feature.group' version='VERSION' singleton='false'>
+      <update id='RsyncPluginFeature.feature.group' range='[0.0.0,VERSION)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Remote Synchronization (rsync)'/>
+        <property name='org.eclipse.equinox.p2.description' value='This is a very light-weight plugin to invoke &quot;rsync&quot; when something&#xA;is saved.&#xA;&#xA;https://github.com/kpaulisse/RsyncPlugin'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://github.com/kpaulisse/RsyncPlugin'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kevin Paulisse'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='RsyncPluginFeature.feature.group' version='VERSION'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.console' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.paulisse.eclipse.plugin.rsync' range='[VERSION,VERSION]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='RsyncPluginFeature.feature.jar' range='[VERSION,VERSION]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <filter>
+        (&amp;(osgi.nl=en_US)(|(osgi.os=aix)(osgi.os=hpux)(osgi.os=linux)(osgi.os=macosx)(osgi.os=qnx)(osgi.os=solaris)))
+      </filter>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='https://www.eclipse.org/legal/epl-v10.html' url='https://www.eclipse.org/legal/epl-v10.html'>
+          Eclipse Public License - v 1.0
+        </license>
+      </licenses>
+      <copyright uri='https://github.com/kpaulisse/RsyncPlugin/blob/master/README.md' url='https://github.com/kpaulisse/RsyncPlugin/blob/master/README.md'>
+        Copyright (c) 2015, Kevin Paulisse, All Rights Reserved
+      </copyright>
+    </unit>
+    <unit id='RsyncPluginFeature.feature.jar' version='VERSION'>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Remote Synchronization (rsync)'/>
+        <property name='org.eclipse.equinox.p2.description' value='This is a very light-weight plugin to invoke &quot;rsync&quot; when something&#xA;is saved.&#xA;&#xA;https://github.com/kpaulisse/RsyncPlugin'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://github.com/kpaulisse/RsyncPlugin'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Kevin Paulisse'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='RsyncPluginFeature.feature.jar' version='VERSION'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='RsyncPluginFeature' version='VERSION'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='RsyncPluginFeature' version='VERSION'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='https://www.eclipse.org/legal/epl-v10.html' url='https://www.eclipse.org/legal/epl-v10.html'>
+          Eclipse Public License - v 1.0
+        </license>
+      </licenses>
+      <copyright uri='https://github.com/kpaulisse/RsyncPlugin/blob/master/README.md' url='https://github.com/kpaulisse/RsyncPlugin/blob/master/README.md'>
+        Copyright (c) 2015, Kevin Paulisse, All Rights Reserved
+      </copyright>
+    </unit>
+  </units>
+</repository>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/RsyncPluginFeature_${pluginVersion}" id="RsyncPluginFeature" version="${pluginVersion}" os="aix,hpux,linux,macosx,qnx,solaris" nl="en_US">
+      <category name="RsyncPlugin"/>
+   </feature>
+   <category-def name="RsyncPlugin" label="Remote Synchronization (rsync)">
+      <description>
+         https://github.com/kpaulisse/RsyncPlugin
+      </description>
+   </category-def>
+</site>
