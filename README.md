@@ -1,5 +1,9 @@
 # RsyncPlugin - A light-weight Eclipse plugin to rsync changes
 
+## Installation
+
+Update site: ```http://www.paulisse.com/eclipse/updates```
+
 ## Overview
 
 This is a very light-weight plugin I wrote for Eclipse to invoke "rsync" when something is saved. I personally use
@@ -43,17 +47,6 @@ If you don't meet the criteria above, please use something more user-friendly, l
 
 * Upon each "build" (incremental or full) a full rsync will be performed. If you have lots of files in your project
     or a slow connection, this might be pretty slow. The alternatives noted above may be faster.
-
-## Installation
-
-I may make an update site later. For now you have to download the project and compile it in an Eclipse instance
-with the plugin development tools installed.
-
-* Clone repo into Eclipse as new project
-* Choose File -> Export, then Plug-in Development -> Deployable plug-ins and fragments
-* Select the project
-* Select Destination as "Install into host. Repository:" and select default repository
-* Click "Finish" button to do it
 
 ## Instructions
 
