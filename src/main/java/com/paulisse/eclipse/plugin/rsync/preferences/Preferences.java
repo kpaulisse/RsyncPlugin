@@ -1,5 +1,7 @@
 package com.paulisse.eclipse.plugin.rsync.preferences;
 
+import com.paulisse.eclipse.plugin.rsync.Activator;
+
 public enum Preferences {
   PATH_RSYNC("Path to rsync", "/usr/bin/rsync", "pathrsync", false, false),
   RSYNC_OPTS("rsync options", "-anvx", "rsyncopts", false, false),
@@ -16,7 +18,7 @@ public enum Preferences {
       Boolean multiLine, Boolean emptyOk) {
     this.setCaption(description);
     this.setDefaultValue(defaultValue);
-    this.setVariableName(variableName);
+    this.setVariableName(Activator.PLUGIN_ID + "." + variableName);
     this.setMultiLine(multiLine);
     this.setEmptyOk(emptyOk);
   }

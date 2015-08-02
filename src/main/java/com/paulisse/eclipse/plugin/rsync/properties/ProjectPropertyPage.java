@@ -50,7 +50,7 @@ public class ProjectPropertyPage extends PropertyPage {
     }
 
     for (Properties property : Properties.values()) {
-      QualifiedName qn = new QualifiedName("", property.getVariableName());
+      QualifiedName qn = new QualifiedName(Activator.PLUGIN_ID, property.getVariableName());
       String value;
       try {
         value = resource.getPersistentProperty(qn);
@@ -120,7 +120,7 @@ public class ProjectPropertyPage extends PropertyPage {
         value = text.getText();
       }
       try {
-        QualifiedName qn = new QualifiedName("", property.getVariableName());
+        QualifiedName qn = new QualifiedName(Activator.PLUGIN_ID, property.getVariableName());
         resource.setPersistentProperty(qn, value);
       } catch (CoreException e) {
         return false;

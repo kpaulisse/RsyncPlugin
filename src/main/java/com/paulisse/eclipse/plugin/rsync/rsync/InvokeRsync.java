@@ -156,7 +156,7 @@ public class InvokeRsync {
   private static String getProperty(IProject project, Properties property)
       throws MissingRequiredSettingException {
     try {
-      QualifiedName qn = new QualifiedName("", property.getVariableName());
+      QualifiedName qn = new QualifiedName(Activator.PLUGIN_ID, property.getVariableName());
       String result = project.getPersistentProperty(qn);
       if (result == null || result.equals("")) {
         if (property.getEmptyOk()) {
@@ -170,5 +170,4 @@ public class InvokeRsync {
       throw new RuntimeException(e.getMessage());
     }
   }
-
 }
