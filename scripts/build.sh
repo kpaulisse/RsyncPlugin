@@ -9,26 +9,29 @@ featuredir=$(mktemp -d)
 version=$(grep ^pluginVersion= build.properties | cut -d= -f2)
 tar -cpf - . | ( cd $featuredir && tar -xpf - )
 cd $featuredir
-perl -pi -e "s/\\\$\\{pluginVersion\\}/$version/g" $featuredir/feature.xml
-perl -pi -e "s/\\\$\\{pluginVersion\\}/$version/g" $featuredir/site.xml
-perl -pi -e "s/TIMESTAMP/time/ge" $featuredir/artifacts.xml
-perl -pi -e "s/VERSION/$version/g" $featuredir/artifacts.xml
-artifact_size=$(stat -c "%s" $featuredir/export/plugins/com.paulisse.eclipse.plugin.rsync_${version}.jar)
-feature_size=$(stat -c "%s" $featuredir/export/features/RsyncPluginFeature_${version}.jar)
-perl -pi -e "s%ARTIFACTSIZE%${artifact_size}%g" $featuredir/artifacts.xml
-perl -pi -e "s%FEATURESIZE%${feature_size}%g" $featuredir/artifacts.xml
-perl -pi -e "s/TIMESTAMP/time/ge" $featuredir/content.xml
-perl -pi -e "s/VERSION/$version/g" $featuredir/content.xml
+perl -pi -e "s/\\\$\\{pluginVersion\\}/$version/g" $featuredir/*.xml
+perl -pi -e "s/0\\.0\\.1/$version/g" $featuredir/META-INF/MANIFEST.MF
+perl -pi -e "s/VERSION/$version/g" $featuredir/*.xml
 echo "basedir=$currentdir" >> $featuredir/build.properties
 ant -buildfile build-feature.xml build.update.jar publish.bin.parts
-jar cvf $featuredir/export/updatesite/artifacts.jar artifacts.xml
-jar cvf $featuredir/export/updatesite/content.jar content.xml
-cp -Rp $featuredir/export/plugins $featuredir/export/updatesite
-cp -Rp $featuredir/export/features $featuredir/export/updatesite
 
-cd $featuredir/export
+java -jar \
+    /opt/eclipse/plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar \
+    -application org.eclipse.equinox.p2.publisher.FeaturesAndBundlesPublisher \
+    -metadataRepository file:/${featuredir}/repository \
+    -artifactRepository file:/${featuredir}/repository \
+    -source ${featuredir}/export \
+    -configs gtk.linux.x86 \
+    -publishArtifacts
+
+java -jar \
+    /opt/eclipse/plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar \
+    -application org.eclipse.equinox.p2.publisher.CategoryPublisher \
+    -metadataRepository file:/${featuredir}/repository \
+    -categoryDefinition file:/${featuredir}/category.xml
+
 rm -rf $currentdir/export
 mkdir -p $currentdir/export
-tar -cpvf - * | (cd $currentdir/export && tar -xpf -)
+tar -cpvf - repository plugins features | (cd $currentdir/export && tar -xpf -)
 cd $currentdir
 rm -rf $featuredir

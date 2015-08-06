@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RsyncPlugin
 Bundle-SymbolicName: com.paulisse.eclipse.plugin.rsync;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.0.1
 Bundle-Activator: com.paulisse.eclipse.plugin.rsync.Activator
 Bundle-Vendor: Kevin Paulisse
 Require-Bundle: org.eclipse.ui,

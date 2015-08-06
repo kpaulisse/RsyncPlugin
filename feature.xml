@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="RsyncPluginFeature"
+      id="com.paulisse.eclipse.plugin.rsync.RsyncPluginFeature"
       label="Remote Synchronization (rsync)"
       version="${pluginVersion}"
       provider-name="Kevin Paulisse"
