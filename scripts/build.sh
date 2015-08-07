@@ -8,7 +8,11 @@ currentdir=$(perl -e 'use Cwd qw/abs_path getcwd/; print abs_path(getcwd())')
 featuredir=$(mktemp -d)
 version=$(grep ^pluginVersion= build.properties | cut -d= -f2)
 tar -cpf - . | ( cd $featuredir && tar -xpf - )
+
 cd $featuredir
+mv $featuredir/scripts/*.xml $featuredir
+mv $featuredir/src/main/resources/*.xml $featuredir
+
 perl -pi -e "s/\\\$\\{pluginVersion\\}/$version/g" $featuredir/*.xml
 perl -pi -e "s/0\\.0\\.1/$version/g" $featuredir/META-INF/MANIFEST.MF
 perl -pi -e "s/VERSION/$version/g" $featuredir/*.xml
