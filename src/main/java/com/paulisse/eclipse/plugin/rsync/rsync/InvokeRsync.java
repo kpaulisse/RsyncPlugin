@@ -124,6 +124,7 @@ public class InvokeRsync {
       while ((line = inputReader.readLine()) != null) {
         plugin.log(line);
       }
+      inputReader.close();
       int errCode = process.waitFor();
       if (errCode == 0) {
         plugin.log("---------- rsync SUCCESSFUL ----------");
