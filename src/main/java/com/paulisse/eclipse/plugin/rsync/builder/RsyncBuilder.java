@@ -1,13 +1,13 @@
 package com.paulisse.eclipse.plugin.rsync.builder;
 
-import java.util.Map;
+import com.paulisse.eclipse.plugin.rsync.rsync.InvokeRsync;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import com.paulisse.eclipse.plugin.rsync.rsync.InvokeRsync;
+import java.util.Map;
 
 public class RsyncBuilder extends IncrementalProjectBuilder {
 

@@ -1,14 +1,14 @@
 package com.paulisse.eclipse.plugin.rsync.actions;
 
+import com.paulisse.eclipse.plugin.rsync.Activator;
+import com.paulisse.eclipse.plugin.rsync.rsync.InvokeRsync;
+import com.paulisse.eclipse.plugin.rsync.util.CommonUtils;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.core.resources.IProject;
-
-import com.paulisse.eclipse.plugin.rsync.Activator;
-import com.paulisse.eclipse.plugin.rsync.rsync.InvokeRsync;
-import com.paulisse.eclipse.plugin.rsync.util.CommonUtils;
 
 public class SynchronizeNow implements IHandler {
 

@@ -1,7 +1,5 @@
 package com.paulisse.eclipse.plugin.rsync.util;
 
-import java.util.Iterator;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
@@ -9,6 +7,8 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import java.util.Iterator;
 
 public class CommonUtils {
 

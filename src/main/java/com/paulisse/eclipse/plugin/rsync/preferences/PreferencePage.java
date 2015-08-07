@@ -1,13 +1,13 @@
 package com.paulisse.eclipse.plugin.rsync.preferences;
 
+import com.paulisse.eclipse.plugin.rsync.Activator;
+import com.paulisse.eclipse.plugin.rsync.preferences.thirdparty.MultiLineStringFieldEditor;
+
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
-import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.IWorkbench;
-
-import com.paulisse.eclipse.plugin.rsync.Activator;
-import com.paulisse.eclipse.plugin.rsync.preferences.thirdparty.MultiLineStringFieldEditor;
+import org.eclipse.ui.IWorkbenchPreferencePage;
 
 public class PreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 

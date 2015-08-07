@@ -1,9 +1,9 @@
 package com.paulisse.eclipse.plugin.rsync.preferences;
 
+import com.paulisse.eclipse.plugin.rsync.Activator;
+
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-
-import com.paulisse.eclipse.plugin.rsync.Activator;
 
 /**
  * Class used to initialize default preference values.

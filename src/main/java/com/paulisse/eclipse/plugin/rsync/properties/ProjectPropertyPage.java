@@ -1,6 +1,6 @@
 package com.paulisse.eclipse.plugin.rsync.properties;
 
-import java.util.HashMap;
+import com.paulisse.eclipse.plugin.rsync.Activator;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.PropertyPage;
 
-import com.paulisse.eclipse.plugin.rsync.Activator;
+import java.util.HashMap;
 
 public class ProjectPropertyPage extends PropertyPage {
 

@@ -1,5 +1,14 @@
 package com.paulisse.eclipse.plugin.rsync.rsync;
 
+import com.paulisse.eclipse.plugin.rsync.Activator;
+import com.paulisse.eclipse.plugin.rsync.preferences.Preferences;
+import com.paulisse.eclipse.plugin.rsync.properties.Properties;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.jface.preference.IPreferenceStore;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,15 +17,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.QualifiedName;
-import org.eclipse.jface.preference.IPreferenceStore;
-
-import com.paulisse.eclipse.plugin.rsync.Activator;
-import com.paulisse.eclipse.plugin.rsync.preferences.Preferences;
-import com.paulisse.eclipse.plugin.rsync.properties.Properties;
 
 public class InvokeRsync {
 
