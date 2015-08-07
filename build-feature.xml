@@ -59,7 +59,6 @@
             <param name="feature.base" value="${feature.temp.folder}"/>
             <param name="updateJar.omitRootfiles" value="true"/>
             <param name="arch" value="*"/>
-            <param name="os" value="aix,hpux,linux,macosx,qnx,solaris"/>
             <param name="ws" value="*"/>
             <param name="nl" value="en_US"/>
         </antcall>
@@ -114,7 +113,6 @@
             <param name="include.children" value="true"/>
             <param name="feature.base" value="${feature.temp.folder}"/>
             <param name="arch" value="*"/>
-            <param name="os" value="aix,hpux,linux,macosx,qnx,solaris"/>
             <param name="ws" value="*"/>
             <param name="nl" value="en_US"/>
         </antcall>

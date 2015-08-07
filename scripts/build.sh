@@ -30,6 +30,10 @@ java -jar \
     -metadataRepository file:/${featuredir}/repository \
     -categoryDefinition file:/${featuredir}/category.xml
 
+perl -pi -e "s/<repository name='.*?'/<repository name='RsyncPlugin Repository'/g" ${featuredir}/repository/*.xml
+perl -pi -e "s/<unit id='.*?category\.xml.all' version='.*?'>/<unit id='category.xml' version='$version'>/g" ${featuredir}/repository/*.xml
+perl -pi -e "s/<provided namespace='org.eclipse.equinox.p2.iu' name='.*?category.xml.all' version='.*?'\/>/<provided namespace='org.eclipse.equinox.p2.iu' name='category.xml' version='$version'\/>/g" ${featuredir}/repository/*.xml
+
 rm -rf $currentdir/export
 mkdir -p $currentdir/export
 tar -cpvf - repository plugins features | (cd $currentdir/export && tar -xpf -)
